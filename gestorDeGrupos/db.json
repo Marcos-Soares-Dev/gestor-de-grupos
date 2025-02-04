@@ -1,0 +1,24 @@
+{
+  "groups": [
+    {
+      "id": "1",
+      "name": "Grupo A",
+      "maxParticipants": 10,
+      "members": [
+        "Alice",
+        "Bob",
+        "Charlie"
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Grupo B",
+      "maxParticipants": 15,
+      "members": [
+        "David",
+        "Eve",
+        "Frank"
+      ]
+    }
+  ]
+}

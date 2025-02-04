@@ -1,12 +1,15 @@
-import { Box } from "@radix-ui/themes";
-import Header from "./components/RootLayout";
+import { Container, Section } from "@radix-ui/themes";
+import RootLayout from "./components/RootLayout/RootLayout";
+
 
 
 
 export default function App() {
   return (
-    <Box>
-      <Header></Header>
-    </Box>
+    <Section>
+      <Container>
+        <RootLayout />
+      </Container>
+    </Section>
   )
 }
