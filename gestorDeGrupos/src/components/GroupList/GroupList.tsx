@@ -1,25 +1,54 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { Flex, Text, Box } from "@radix-ui/themes";
+import GroupItem from "../GroupItem/GroupItem";
+import styles from "./GroupList.module.css";
 
+interface Group {
+  id: number;
+  groupName: string;
+  maxParticipants: number;
+  members: string[];
+}
 
 export default function GroupList() {
+  const [groupList, setGroupList] = useState<Group[]>([]);
 
-    const [groupList, setGroupList] = useState([])
+  const fetchGroups = async () => {
+    try {
+      const response = await axios.get("http://localhost:3000/groups");
+      setGroupList(response.data);
+    } catch (error) {
+      console.error("Erro ao buscar os grupos:", error);
+    }
+  };
 
-    useEffect(() => {
-        const fetchGroups = async () => {
-          try {
-            const response = await axios.get("http://localhost:3000/groups");
-            setGroupList(response.data);
-          } catch (error) {
-            console.error("Erro ao buscar os grupos:", error);
-          }
-        };
-    
-        fetchGroups();
-      }, []);
+  useEffect(() => {
+    fetchGroups();
+  }, []);
+
+  const handleMemberAdded = () => {
+    // Recarregar a lista de grupos após adicionar um novo membro
+    fetchGroups();
+  };
 
   return (
-    alert(groupList.map())
-  )
+    <Box>
+      <Text as="h2" size="4" mb="4">
+        Lista de Grupos
+      </Text>
+      <Box className={styles.groupContainer}>
+        {groupList.map((group) => (
+          <GroupItem
+            key={group.id}
+            id={group.id}
+            groupName={group.groupName}
+            maxParticipants={group.maxParticipants}
+            members={group.members}
+            onMemberAdded={handleMemberAdded}
+          />
+        ))}
+      </Box>
+    </Box>
+  );
 }
