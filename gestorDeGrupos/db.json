@@ -12,7 +12,8 @@
         "edi",
         "ed",
         "asdasd",
-        "dasdasd"
+        "dasdasd",
+        "2"
       ]
     },
     {
@@ -22,7 +23,8 @@
       "members": [
         "David",
         "Eve",
-        "Frank"
+        "Frank",
+        "ed"
       ]
     },
     {
@@ -36,6 +38,30 @@
         "5",
         "10"
       ]
+    },
+    {
+      "id": "8c53",
+      "groupName": "test 2",
+      "maxParticipants": 20,
+      "members": []
+    },
+    {
+      "id": "4945",
+      "groupName": "fs22",
+      "maxParticipants": 12,
+      "members": []
+    },
+    {
+      "id": "a913",
+      "groupName": "fs20",
+      "maxParticipants": 40,
+      "members": []
+    },
+    {
+      "id": "fde1",
+      "groupName": "fs70",
+      "maxParticipants": 45,
+      "members": []
     }
   ]
 }

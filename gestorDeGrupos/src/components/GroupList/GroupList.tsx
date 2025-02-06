@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Flex, Text, Box } from "@radix-ui/themes";
+import { Text, Box } from "@radix-ui/themes";
 import GroupItem from "../GroupItem/GroupItem";
 import styles from "./GroupList.module.css";
 
@@ -34,7 +34,7 @@ export default function GroupList() {
 
   return (
     <Box>
-      <Text as="h2" size="4" mb="4">
+      <Text as="p" size="4" mb="4">
         Lista de Grupos
       </Text>
       <Box className={styles.groupContainer}>

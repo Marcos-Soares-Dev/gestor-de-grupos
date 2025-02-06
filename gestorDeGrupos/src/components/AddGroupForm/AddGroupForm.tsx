@@ -1,9 +1,15 @@
 import { PlusIcon } from "@radix-ui/react-icons";
 import { Button, Dialog, Flex, Text, TextField } from "@radix-ui/themes";
 import axios from "axios";
-import { FormEventHandler } from "react";
+import { FormEventHandler, useState } from "react";
 
-export default function AddGroupForm() {
+interface AddGroupFormProps {
+  onGroupAdded: () => void; // Callback para atualizar a lista de grupos após adicionar um novo grupo
+}
+
+export default function AddGroupForm({ onGroupAdded }: AddGroupFormProps) {
+  const [open, setOpen] = useState(false);
+
   const handleFormSubmit: FormEventHandler<HTMLFormElement> = async (ev) => {
     ev.preventDefault();
 
@@ -21,14 +27,15 @@ export default function AddGroupForm() {
     try {
         await axios.post("http://localhost:3000/groups",newGroup)
         console.log("Novo grupo salvo com sucesso");
-        
+        onGroupAdded(); // Chamar o callback para atualizar a lista de grupos
+        setOpen(false); // Fechar o diálogo
     } catch (error) {
         console.error(`Erro ao salvar o grupo`, error)
     }
   };
 
   return (
-    <Dialog.Root>
+    <Dialog.Root open={open} onOpenChange={setOpen}>
       <Dialog.Trigger>
         <Button variant="outline" color="pink">
           <PlusIcon /> Adicionar Grupo
