@@ -9,9 +9,10 @@ interface GroupItemProps {
   maxParticipants: number;
   members: string[];
   onMemberAdded: () => void; // Callback para atualizar a lista de membros após adicionar um novo membro
+  onViewMembers: (group: { id: number; groupName: string; maxParticipants: number; members: string[] }) => void; // Callback para visualizar membros
 }
 
-export default function GroupItem({ id, groupName, maxParticipants, members, onMemberAdded }: GroupItemProps) {
+export default function GroupItem({ id, groupName, maxParticipants, members, onMemberAdded, onViewMembers }: GroupItemProps) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -19,7 +20,7 @@ export default function GroupItem({ id, groupName, maxParticipants, members, onM
       <Flex align={"center"} justify={"center"} direction={"column"} gap={"8"} p={"4"}>
         <Flex gap={"8"} align={"center"}>
           <Text as="div" size={"4"} weight={"bold"}>{groupName}</Text>
-          <EyeOpenIcon />
+          <EyeOpenIcon onClick={() => onViewMembers({ id, groupName, maxParticipants, members })} style={{ cursor: "pointer" }} /> {/* Ícone de olho com função de clique */}
         </Flex>
 
         <Flex direction={"column"}>

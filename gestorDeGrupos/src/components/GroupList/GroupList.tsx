@@ -11,7 +11,7 @@ interface Group {
   members: string[];
 }
 
-export default function GroupList() {
+export default function GroupList({ onViewMembers }) {
   const [groupList, setGroupList] = useState<Group[]>([]);
 
   const fetchGroups = async () => {
@@ -46,6 +46,7 @@ export default function GroupList() {
             maxParticipants={group.maxParticipants}
             members={group.members}
             onMemberAdded={handleMemberAdded}
+            onViewMembers={onViewMembers} // Passar a função para visualizar membros
           />
         ))}
       </Box>
