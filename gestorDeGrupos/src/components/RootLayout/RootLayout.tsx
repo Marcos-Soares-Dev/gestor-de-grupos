@@ -3,6 +3,7 @@ import AddGroupForm from "../AddGroupForm/AddGroupForm";
 import GroupList from "../GroupList/GroupList";
 import ShowGroupMembers from "../ShowGroupMembers/ShowGroupMembers";
 import { useState } from "react";
+import axios from "axios";
 
 export default function RootLayout() {
   const [update, setUpdate] = useState(false);
@@ -22,6 +23,15 @@ export default function RootLayout() {
     setDialogOpen(false); // Fechar a caixa de diálogo
   };
 
+  const handleDeleteGroup = async (groupId) => {
+    try {
+      await axios.delete(`http://localhost:3000/groups/${groupId}`);
+      setUpdate(!update); // Atualizar a lista de grupos após a exclusão
+    } catch (error) {
+      console.error("Erro ao excluir o grupo:", error);
+    }
+  };
+
   return (
     <Container>
       <Flex direction={"column"} gap={"8"}>
@@ -29,7 +39,7 @@ export default function RootLayout() {
           <img src="src/assets/logo.png" alt="digital college" />
           <AddGroupForm onGroupAdded={handleGroupAdded} />
         </Flex>
-        <GroupList key={update} onViewMembers={handleViewMembers} /> {/* Passar a função para visualizar membros */}
+        <GroupList key={update} onViewMembers={handleViewMembers} onDeleteGroup={handleDeleteGroup} /> {/* Passar a função para excluir grupo */}
         {selectedGroup && (
           <ShowGroupMembers group={selectedGroup} open={isDialogOpen} onClose={handleCloseDialog} /> // Passar o grupo selecionado e o estado de abertura para o componente ShowGroupMembers
         )}

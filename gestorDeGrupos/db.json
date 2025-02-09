@@ -1,67 +1,46 @@
 {
   "groups": [
     {
-      "id": "1",
-      "groupName": "Grupo A",
-      "maxParticipants": 10,
-      "members": [
-        "Alice",
-        "Bob",
-        "Charlie",
-        "edi",
-        "edi",
-        "ed",
-        "asdasd",
-        "dasdasd",
-        "2"
-      ]
-    },
-    {
-      "id": "2",
-      "groupName": "Grupo B",
-      "maxParticipants": 15,
-      "members": [
-        "David",
-        "Eve",
-        "Frank",
-        "ed"
-      ]
-    },
-    {
-      "id": "29b8",
-      "groupName": "test",
-      "maxParticipants": 123,
-      "members": [
-        "ed",
-        "marcos",
-        "1",
-        "5",
-        "10"
-      ]
-    },
-    {
-      "id": "8c53",
-      "groupName": "test 2",
-      "maxParticipants": 20,
-      "members": []
-    },
-    {
-      "id": "4945",
-      "groupName": "fs22",
+      "id": "5ade",
+      "groupName": "Fs 40",
       "maxParticipants": 12,
-      "members": []
+      "members": [
+        "fulano ",
+        "cicrano ",
+        "beltrano"
+      ]
     },
     {
-      "id": "a913",
-      "groupName": "fs20",
-      "maxParticipants": 40,
-      "members": []
+      "id": "dc4e",
+      "groupName": "Fs40",
+      "maxParticipants": 20,
+      "members": [
+        "kratos",
+        "leon",
+        "ashley",
+        "ada"
+      ]
     },
     {
-      "id": "fde1",
-      "groupName": "fs70",
-      "maxParticipants": 45,
-      "members": []
+      "id": "ae13",
+      "groupName": "Fs35",
+      "maxParticipants": 8,
+      "members": [
+        "mario",
+        "luigi"
+      ]
+    },
+    {
+      "id": "25f1",
+      "groupName": "Fs300",
+      "maxParticipants": 50,
+      "members": [
+        "bobasauro",
+        "picachu",
+        "diglpuff",
+        "charizard",
+        "charmander"
+      ]
     }
   ]
 }

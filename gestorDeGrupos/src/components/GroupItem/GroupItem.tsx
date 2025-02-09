@@ -10,10 +10,15 @@ interface GroupItemProps {
   members: string[];
   onMemberAdded: () => void; // Callback para atualizar a lista de membros após adicionar um novo membro
   onViewMembers: (group: { id: number; groupName: string; maxParticipants: number; members: string[] }) => void; // Callback para visualizar membros
+  onDeleteGroup: (groupId: number) => void; // Callback para excluir grupo
 }
 
-export default function GroupItem({ id, groupName, maxParticipants, members, onMemberAdded, onViewMembers }: GroupItemProps) {
+export default function GroupItem({ id, groupName, maxParticipants, members, onMemberAdded, onViewMembers, onDeleteGroup }: GroupItemProps) {
   const [open, setOpen] = useState(false);
+
+  const handleDelete = () => {
+    onDeleteGroup(id); // Chamar a função de exclusão passando o ID do grupo
+  };
 
   return (
     <Card>
@@ -35,7 +40,7 @@ export default function GroupItem({ id, groupName, maxParticipants, members, onM
         <Flex gap={"8"} align={"center"} justify={"center"}>
           <AddMemberForm groupId={id} onMemberAdded={onMemberAdded} open={open} setOpen={setOpen} />
 
-          <Button variant="outline" color="pink">
+          <Button variant="outline" color="pink" onClick={handleDelete}>
             <TrashIcon />
           </Button>
         </Flex>

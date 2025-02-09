@@ -11,7 +11,7 @@ interface Group {
   members: string[];
 }
 
-export default function GroupList({ onViewMembers }) {
+export default function GroupList({ onViewMembers, onDeleteGroup }) {
   const [groupList, setGroupList] = useState<Group[]>([]);
 
   const fetchGroups = async () => {
@@ -47,6 +47,7 @@ export default function GroupList({ onViewMembers }) {
             members={group.members}
             onMemberAdded={handleMemberAdded}
             onViewMembers={onViewMembers} // Passar a função para visualizar membros
+            onDeleteGroup={onDeleteGroup} // Passar a função para excluir grupo
           />
         ))}
       </Box>
